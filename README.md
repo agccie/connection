@@ -94,7 +94,7 @@ There are many operations where a device may prompt the user for confirmation in
  
  For these operations, the cmd() function should include a match dictionary to explicitly look for the y/n prompt:
  
-  ```python
+ ```python
             from connection import Connection
             c = Connection("esc-aci-fab3")
             if c.login():     
