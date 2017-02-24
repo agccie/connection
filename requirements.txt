@@ -1,0 +1,6 @@
+appdirs==1.4.2
+packaging==16.8
+pexpect==4.2.1
+ptyprocess==0.5.1
+pyparsing==2.1.10
+six==1.10.0
