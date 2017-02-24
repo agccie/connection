@@ -41,6 +41,7 @@ There are several libraries available within python that can be used to connect 
  
  The result of the cmd() function is a string name representing what was matched by the command.  For most operations, this will be 'prompt', however custom match options can be provided to the cmd() function for more flexibility.  The output from each command is saved in the __output__ variable. 
  
+ ```python
      def cmd(self, command, **kargs):
         """
         execute a command on a device and wait for one of the provided matches to return.
@@ -60,11 +61,13 @@ There are several libraries available within python that can be used to connect 
         returns the key from the matched regex.  For most scenarios, this will be 'prompt'.  The output
         from the command can be collected from self.output variable
         """
+ ```
  
- # Examples
+# Examples
  
 * Basic example for ssh into a device, executing a command, and viewing the output.
 
+ ```python
         c = Connection("host1")
         c.username = "admin"
         c.password = "cisco"
@@ -72,12 +75,16 @@ There are several libraries available within python that can be used to connect 
         c.cmd("show version")
         print "version of code: %s" % c.output
         
+```
+
 * Setting the logfile to stdout
-         
+    
+```python
          import sys
          from connection import Connection
          c = Connection("host1")
          c.log = sys.stdout
+```
  
 * Matching a custom attribute
 There are many operations where a device may prompt the user for confirmation instead of returning the prompt.  An example reload an IOS/NXOS device:
@@ -87,6 +94,7 @@ There are many operations where a device may prompt the user for confirmation in
  
  For these operations, the cmd() function should include a match dictionary to explicitly look for the y/n prompt:
  
+  ```python
             from connection import Connection
             c = Connection("esc-aci-fab3")
             if c.login():     
@@ -101,7 +109,8 @@ There are many operations where a device may prompt the user for confirmation in
                     result = c.cmd("y", timeout=5)
                     if result == "eof" or result == "timeout":
                         print "looks like the box is reloading!"
- 
+```
+
 * ssh into a non-cisco device
 
  The connection script is using pexpect and is looking for a prompt to determine when the login is successful.  To login to a different device, simply set the prompt to a regex matching the devices prompt.  For example, when access a ubuntu host, you may see the following prompt:
@@ -109,12 +118,12 @@ There are many operations where a device may prompt the user for confirmation in
          agccie@ag-docker2:~$
  
  The prompt needs to match the string :~$.  An appropriate regex might be "[^:]:~\$[ ]*$".  When setting up the connection, update the prompt before login:
- 
+
+ ```python
          from connection import Connection
          c = Connection("host1")
          c.username = agccie
          c.password = cisco
          c.prompt = "[^:]:~\$[ ]*$"
-         print "Login successful: %r" % c.login()
- 
-       
+         print "Login successful: %r" % c.login() 
+```       
