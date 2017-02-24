@@ -6,10 +6,11 @@ There are several libraries available within python that can be used to connect 
 
 # Installation
 
-* Python 2.7+
+* Python 2.7.9+
+As with any python project, it is strongly recommended to install within an virtual environment
 
       git clone https://github.com/agccie/connection.git
-      more
+      pip install -r requirements.txt
       
 # Usage
 
