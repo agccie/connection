@@ -40,8 +40,10 @@ There are several libraries available within python that can be used to connect 
         cmd()            execute a command on the device (provide matches and timeout)
         
  # Examples
+ word
  
  # FAQ
+ word
  
  ## How do I log to standard out
  The log option supports a filename or file pointer.  To log to standard out, you can just set log to sys.stdout.  For example:
