@@ -67,25 +67,24 @@ There are several libraries available within python that can be used to connect 
  
 * Basic example for ssh into a device, executing a command, and viewing the output.
 
- ```python
+```python
         c = Connection("host1")
         c.username = "admin"
         c.password = "cisco"
         c.cmd("terminal length 0")
         c.cmd("show version")
-        print "version of code: %s" % c.output
-        
+        print "version of code: %s" % c.output    
 ```
 
 * Setting the logfile to stdout
-    
+
 ```python
          import sys
          from connection import Connection
          c = Connection("host1")
          c.log = sys.stdout
 ```
- 
+
 * Matching a custom attribute
 There are many operations where a device may prompt the user for confirmation instead of returning the prompt.  An example reload an IOS/NXOS device:
 
