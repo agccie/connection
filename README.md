@@ -41,7 +41,7 @@ As with any python project, it is strongly recommended to install within an virt
         close()          (opt) close current connection
         cmd()            execute a command on the device (provide matches and timeout)
  
- The result of the cmd() function is a string name representing what was matched by the command.  For most operations, this will be 'prompt', however custom match options can be provided to the cmd() function for more flexibility.  The output from each command is saved in the __output__ variable. 
+ The result of the cmd() function is a string name representing what was matched by the command.  For most operations, this will be 'prompt', however custom match options can be provided to the cmd() function for more flexibility.  The output from each command is saved in the __output__ variable.   Below is the docstring for the cmd() function.
  
  ```python
      def cmd(self, command, **kargs):
@@ -70,6 +70,7 @@ As with any python project, it is strongly recommended to install within an virt
 * Basic example for ssh into a device, executing a command, and viewing the output.
 
 ```python
+        from connection import Connection
         c = Connection("host1")
         c.username = "admin"
         c.password = "cisco"
